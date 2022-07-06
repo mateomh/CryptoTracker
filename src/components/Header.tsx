@@ -1,10 +1,14 @@
 import { AppBar, Container, MenuItem, Select, ThemeProvider, Toolbar, Typography } from "@material-ui/core";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import { CryptoState } from "../CryptoContext";
 import { useAppStyles, darkTheme } from "../styles/useAppStyles";
 
 const Header:React.FC = () => {
   const styles = useAppStyles();
   const navigate = useNavigate();
+
+  const {currency, symbol, setCurrency} = CryptoState();
 
   return(
     <ThemeProvider theme={darkTheme}>
@@ -21,6 +25,8 @@ const Header:React.FC = () => {
             <Select
               variant="outlined"
               className={styles.CurrencySelect}
+              value={currency}
+              onChange={(e: any)=> setCurrency(e.target.value)}
             >
               <MenuItem>USD</MenuItem>
               <MenuItem>COP</MenuItem>
