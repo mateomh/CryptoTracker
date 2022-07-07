@@ -8,7 +8,7 @@ const Header:React.FC = () => {
   const styles = useAppStyles();
   const navigate = useNavigate();
 
-  const {currency, symbol, setCurrency} = CryptoState();
+  const {currency, setCurrency} = CryptoState();
 
   return(
     <ThemeProvider theme={darkTheme}>
@@ -28,8 +28,8 @@ const Header:React.FC = () => {
               value={currency}
               onChange={(e: any)=> setCurrency(e.target.value)}
             >
-              <MenuItem>USD</MenuItem>
-              <MenuItem>COP</MenuItem>
+              <MenuItem value={"USD"}>USD</MenuItem>
+              <MenuItem value={"EUR"}>EUR</MenuItem>
             </Select>
           </Toolbar>
         </Container>

@@ -19,7 +19,37 @@ export const useAppStyles = ():AppStyles => {
       width: 100,
       height: 40,
       marginLeft: 15,
-    }
+    },
+    Banner: {
+      backgroundImage: "url(./banner2.jpg)",
+    },
+    BannerContent: {
+      height: 400,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-around",
+      paddingTop: 25,
+    },
+    Tagline: {
+      display: "flex",
+      height: "40%",
+      flexDirection: "column",
+      justifyContent: "space-around",
+      textAlign: "center",
+    },
+    Carousel: {
+      height: "50%",
+      display: "flex",
+      alignItems: "center",
+    },
+    CarouselItem: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      cursor: "pointer",
+      textTransform: "uppercase",
+      color: "white",
+    },
   })
   
   );

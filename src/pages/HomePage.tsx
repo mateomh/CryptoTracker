@@ -1,6 +1,10 @@
+import Banner from "../components/Banner";
+
 const HomePage:React.FC = () => {
   return(
-    <h1>Home Page</h1>
+    <>
+     <Banner />
+    </>
   );
 }
 

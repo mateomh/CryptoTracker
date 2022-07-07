@@ -7,8 +7,8 @@ interface CryptoContextType {
 }
 
 const CryptoContextDefault: CryptoContextType = {
-  currency: "COP",
-  symbol: "#",
+  currency: "USD",
+  symbol: "$",
   setCurrency: () => {},
 }
 
@@ -23,12 +23,12 @@ interface CryptoContextProps {
 }
 
 const CryptoContext:React.FC<CryptoContextProps> = ({children}) => {
-  const [currency, setCurrency] = useState("COP");
-  const [symbol, setSymbol] = useState("#");
+  const [currency, setCurrency] = useState("USD");
+  const [symbol, setSymbol] = useState("$");
 
   useEffect(() =>{
     if(currency === "USD") setSymbol("$")
-    else if (currency === "COP") setSymbol("#")
+    else if (currency === "EUR") setSymbol("€")
   },[currency]);
 
   return(
