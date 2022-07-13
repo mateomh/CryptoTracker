@@ -7,4 +7,6 @@ export interface AppStyles {
   Tagline: any;
   Carousel: any;
   CarouselItem: any;
+  row: any;
+  pagination: any;
 };
