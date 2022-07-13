@@ -165,7 +165,7 @@ const CoinsTable:React.FC = () => {
           }
         </TableContainer>
         <Pagination 
-         count={(handleSearch()?.length / 10).toFixed(0)}
+         count={((handleSearch()?.length / 10))}
          style={{
            padding: 20,
            width: "100%",

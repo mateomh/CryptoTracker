@@ -9,4 +9,9 @@ export interface AppStyles {
   CarouselItem: any;
   row: any;
   pagination: any;
+  container: any;
+  sidebar: any;
+  heading: any;
+  description: any;
+  marketData: any;
 };
