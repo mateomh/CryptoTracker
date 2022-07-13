@@ -1,4 +1,5 @@
 import { Container, LinearProgress, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, ThemeProvider, Typography } from '@material-ui/core';
+import { Pagination } from '@material-ui/lab';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
@@ -11,9 +12,10 @@ export function numberWithCommas(x:number) {
 }
 
 const CoinsTable:React.FC = () => {
-  const [coins, setCoins] = useState([]);
+  const [coins, setCoins] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1)
   const navigate = useNavigate();
   const {currency, symbol} = CryptoState();
   const styles = useAppStyles();
@@ -83,7 +85,9 @@ const CoinsTable:React.FC = () => {
                 </TableHead>
                 <TableBody>
                     {
-                      handleSearch().map((coin: any) => {
+                      handleSearch()
+                      .slice((page - 1)* 10, (page - 1) * 10 + 10)
+                      .map((coin: any) => {
                         const isProfit = coin.price_change_percentage_24h > 0
                         return(
                           <TableRow
@@ -160,6 +164,21 @@ const CoinsTable:React.FC = () => {
             )
           }
         </TableContainer>
+        <Pagination 
+         count={(handleSearch()?.length / 10).toFixed(0)}
+         style={{
+           padding: 20,
+           width: "100%",
+           display: "flex",
+           justifyContent: "center"
+          }}
+          classes={{ul: styles.pagination}}
+          onChange={ (_, value) => {
+            setPage(value)
+            window.scroll(0,450)
+          }}
+        />
+
       </Container>
     </ThemeProvider>
   )
