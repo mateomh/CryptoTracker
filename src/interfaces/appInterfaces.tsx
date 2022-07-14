@@ -14,4 +14,6 @@ export interface AppStyles {
   heading: any;
   description: any;
   marketData: any;
+  ChartContainer: any;
+  selectbutton: any;
 };

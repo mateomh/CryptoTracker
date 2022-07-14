@@ -8,7 +8,7 @@ import { darkTheme, useAppStyles } from '../styles/useAppStyles';
 import { CoinList } from '../utils/gecko-api';
 
 export function numberWithCommas(x:number) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x ? x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : null;
 }
 
 const CoinsTable:React.FC = () => {
@@ -91,7 +91,7 @@ const CoinsTable:React.FC = () => {
                         const isProfit = coin.price_change_percentage_24h > 0
                         return(
                           <TableRow
-                            onClick={() => navigate(`/coins/${coin.name}`)}
+                            onClick={() => navigate(`/coins/${coin.id}`)}
                             key={coin.name}
                             className={styles.row}
                           >

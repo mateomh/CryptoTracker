@@ -6,7 +6,8 @@ import CoinInfoChart from "../components/CoinInfoChart";
 import { CryptoState } from "../CryptoContext";
 import { useAppStyles } from "../styles/useAppStyles";
 import { SingleCoin } from "../utils/gecko-api";
-import ReactHtmlParser from 'react-html-parser';
+// import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import HtmlParser from 'react-html-parser';
 import { numberWithCommas } from "../components/CoinsTable";
 
 const Coins:React.FC = () => {
@@ -22,6 +23,7 @@ const Coins:React.FC = () => {
   }
 
   useEffect(() => {
+    console.log("%%%%%%%%%%%% OIN ID",id);
     fetchCoin()
   }, [])
 
@@ -40,7 +42,7 @@ const Coins:React.FC = () => {
           {coin?.name}
         </Typography>
         <Typography variant="subtitle1" className={styles.description}>
-          {ReactHtmlParser(coin?.description.en.split(". ")[0])}.
+          {/* {HtmlParser(coin?.description.en.split(". ")[0])}. */}
         </Typography>
         <div className={styles.marketData}>
           <span style={{ display: "flex" }}>
@@ -97,7 +99,7 @@ const Coins:React.FC = () => {
           </span>
         </div>
       </div>
-      <CoinInfoChart />
+      <CoinInfoChart coin={coin} />
 
     </div>
   );
